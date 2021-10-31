@@ -1,11 +1,14 @@
 import React from 'react';
-
+import Products from './components/Products';
+import { ProductProvider } from './contexts/ProductContext';
 
 function App() {
   return (
-    <div className="App">
-  
-    </div>
+    <ProductProvider>
+      <div className="App">
+        <Products/>
+      </div>
+    </ProductProvider>
   );
 }
 
