@@ -32,7 +32,7 @@ cursor:pointer;
   margin-bottom: 20px;
 }
   h3 {
-    font-size: 1.5em;
+    font-size: 1.8rem;
     font-weight: 700;
   }
 

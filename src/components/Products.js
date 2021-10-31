@@ -39,11 +39,8 @@ align-items: center;
 flex-direction: column;
 max-width: 1600px;
 width:100%;
-padding: 20px;
-margin: 50px auto 0px;
-h1 {
-    font-size: 2.2rem;
-}
+padding:20px 20px 20px 250px;
+margin: 0px auto;
 
 `;
 
