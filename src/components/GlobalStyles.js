@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle `
      font-size: 2.2rem;
      color: var(--header-bg);
      text-align:center;
+     margin:0;
  }
 
  h4 {
@@ -44,7 +45,7 @@ const GlobalStyles = createGlobalStyle `
     width: 236px;
     background: #f8f8f8;
     height: 100vh;
-    padding: 50px 20px;
+    padding:25px 20px;
     position:fixed;
     display:flex;
     flex-direction:column;
@@ -52,14 +53,14 @@ const GlobalStyles = createGlobalStyle `
 
 .active {
     left:0;
-    top: 0;
-    transition: 350ms;
+    top: 0px;
+    transition: all 800ms ease-in-out;
 }
 
 .hidden {
 left: -100%;
-top:0;
-transition: 800ms;
+top:0px;
+transition: all 900ms ease-out;
 }
 
 `;
