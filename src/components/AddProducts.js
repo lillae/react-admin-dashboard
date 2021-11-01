@@ -39,8 +39,15 @@ const AddProducts = () => {
             
         }
         
-        addedProduct === '' ? setAddedProduct([newProduct]) : setAddedProduct([...addedProduct, newProduct]);
-        setAllProducts([...products, ...addedProduct, newProduct]);
+        if(addedProduct.length > 0) {
+            setAddedProduct([...addedProduct, newProduct])
+            setAllProducts([...products, ...addedProduct, newProduct]);
+        } else {
+            setAddedProduct([newProduct])
+            setAllProducts([...products, newProduct]);
+        }
+     
+        
         setName('');
         setDescription('');
         setPrice('');
