@@ -6,29 +6,38 @@ import { useProduct } from '../contexts/ProductContext';
 import styled from 'styled-components';
 
 
-const Products = () => {
-    const {products, setProducts} = useProduct();
 
+const Products = () => {
+    const {products, setProducts, setAllProducts, addedProduct} = useProduct();
+    
     useEffect(() => {
         async function fetchProduct() {
             const res =  await axios.get(productsURL());
             setProducts(res.data);
+            setAllProducts([...products, addedProduct]);
             return res;
         }
         fetchProduct();
         
-    }, [setProducts]);
+    }, [setProducts, setAllProducts, addedProduct, products]);
 
-    console.log(products);
+
+    
 
     return (
       <Wrapper>
         <h1>All Products</h1>
-        <Cards>
-            {products.map(product => (
-                <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
-            ))}
-        </Cards>
+    
+            <Cards>
+                 {products.map(product => (
+                     <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
+                 ))}
+                 {addedProduct !== null && 
+                 addedProduct.map(product => (
+                    <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
+                 ))}
+             </Cards>
+        
      </Wrapper>
     )
 }

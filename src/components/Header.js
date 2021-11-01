@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar, Button, Alignment} from '@blueprintjs/core';
 import styled from 'styled-components';
 import { useProduct } from '../contexts/ProductContext';
@@ -7,6 +7,7 @@ import Sidenav from './SideNav';
 
 const Header = () => {
     const {toggleSidebar} = useProduct();
+   
 
     return (
         <>
@@ -17,7 +18,7 @@ const Header = () => {
                     <Navbar.Divider className="divider"/>
                     <Button className="bp3-minimal" icon="menu" intent="#f5f8fa" text="Menu" onClick={toggleSidebar}/>
                 </StyledNavHome>
-                    <Button className="bp3-minimal icon-white" icon="user" intent="#f5f8fa" text="User"/>
+                    <Button className="bp3-minimal icon-white" icon="user" intent="#f5f8fa" text="Sign out"/>
             </StyledGroup>
         </StyledNavbar>
         <Sidenav/>

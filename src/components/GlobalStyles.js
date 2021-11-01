@@ -30,6 +30,9 @@ const GlobalStyles = createGlobalStyle `
      color: var(--header-bg);
      text-align:center;
      margin:0;
+     @media (max-width:1024px) {
+        font-size: 1.8rem;
+    }
  }
 
  h4 {
