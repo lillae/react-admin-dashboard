@@ -4,8 +4,9 @@ import { FormGroup, InputGroup, Button } from '@blueprintjs/core';
 import { useProduct } from '../contexts/ProductContext';
 import { v4 as uuidv4 } from 'uuid';
 
+
 const AddProducts = () => {
-    const {setAllProducts, addedProduct, setAddedProduct} = useProduct();
+    const {products, setAllProducts, addedProduct, setAddedProduct} = useProduct();
     const [name, setName ] = useState('');
     const [price, setPrice ] = useState('');
     const [description, setDescription ] = useState('');
@@ -38,8 +39,8 @@ const AddProducts = () => {
             
         }
         
-        setAddedProduct([...addedProduct, newProduct]);
-        setAllProducts(allProducts => [...allProducts, addedProduct]);
+        addedProduct === '' ? setAddedProduct([newProduct]) : setAddedProduct([...addedProduct, newProduct]);
+        setAllProducts([...products, ...addedProduct, newProduct]);
         setName('');
         setDescription('');
         setPrice('');

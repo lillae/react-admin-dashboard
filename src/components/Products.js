@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 
 const Products = () => {
-    const {products, setProducts, setAllProducts, addedProduct} = useProduct();
+    const {products, setProducts, addedProduct, setAllProducts} = useProduct();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -16,13 +16,13 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data);
-            setAllProducts([...products, addedProduct]);
+            setAllProducts([...products, ...addedProduct]);
             }
 
             return res;
         }
         fetchProducts();
-    }, [setProducts, setAllProducts, addedProduct, products]);
+    }, [setProducts, addedProduct, products, setAllProducts]);
 
 
     return (
@@ -33,10 +33,11 @@ const Products = () => {
                  {products.map(product => (
                      <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
                  ))}
-                 {addedProduct !== null && 
-                 addedProduct.map(product => (
-                    <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
-                 ))}
+                 {addedProduct && (
+                     addedProduct.map(product => (
+                        <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
+                     ))
+                 )}
              </Cards>
      </Wrapper>
     )

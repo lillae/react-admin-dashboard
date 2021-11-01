@@ -8,9 +8,9 @@ export function useProduct() {
 }
 
 export function ProductProvider({children}) {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useLocalStorage('Api Data', []);
     const [addedProduct, setAddedProduct] = useLocalStorage('Added Item', []);
-    const [allProducts, setAllProducts] = useLocalStorage('All Products', [...products, addedProduct]);
+    const [allProducts, setAllProducts] = useLocalStorage('All Products', []);
     const isMobile = window.innerWidth < 1200;
     const [sidebar, setSidebar] = useState(true);
 
@@ -26,10 +26,10 @@ export function ProductProvider({children}) {
         sidebar,
         setSidebar,
         toggleSidebar,
-        allProducts,
-        setAllProducts,
         addedProduct,
         setAddedProduct,
+        allProducts,
+        setAllProducts,
         isMobile
     }
 
