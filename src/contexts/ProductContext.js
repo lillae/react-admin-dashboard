@@ -20,8 +20,21 @@ export function ProductProvider({children}) {
         console.log(sidebar);
     } ;
 
+    const value = {
+        products,
+        setProducts,
+        sidebar,
+        setSidebar,
+        toggleSidebar,
+        allProducts,
+        setAllProducts,
+        addedProduct,
+        setAddedProduct,
+        isMobile
+    }
+
     return (
-        <ProductContext.Provider value={{products, setProducts, sidebar, setSidebar, toggleSidebar, allProducts, setAllProducts, addedProduct, setAddedProduct, isMobile}}>
+        <ProductContext.Provider value={value}>
             {children}
         </ProductContext.Provider>
     )

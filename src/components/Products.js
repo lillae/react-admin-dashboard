@@ -21,9 +21,6 @@ const Products = () => {
         
     }, [setProducts, setAllProducts, addedProduct, products]);
 
-
-    
-
     return (
       <Wrapper>
         <h1>All Products</h1>
@@ -37,7 +34,6 @@ const Products = () => {
                     <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
                  ))}
              </Cards>
-        
      </Wrapper>
     )
 }
