@@ -57,7 +57,7 @@ const AddProducts = () => {
        
 
     return (
-        <Wrapper>
+        <Wrapper className="wrapper">
             <h1>Add Products</h1>
             <StyledFormGroup
                 label="Product name"
@@ -96,12 +96,16 @@ const AddProducts = () => {
 }
 
 const Wrapper = styled.div ` 
-padding:20px 20px 20px 250px;
 max-width: 700px;
 width:100%;
 margin: 0px auto;
 display: flex;
 flex-direction: column;
+z-index: -10;
+padding:20px 20px 20px 250px;
+    @media (max-width:767px) {
+        padding: 15px;
+    }
 
 h1 {
     margin-bottom: 50px;

@@ -66,6 +66,10 @@ top:0px;
 transition: all 900ms ease-out;
 }
 
+.wrapper {
+    
+}
+
 `;
 
  export default GlobalStyles;

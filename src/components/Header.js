@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Navbar, Button, Alignment} from '@blueprintjs/core';
 import styled from 'styled-components';
-import { useProduct } from '../contexts/ProductContext';
 import Sidenav from './SideNav';
 
 
 const Header = () => {
-    const {toggleSidebar} = useProduct();
-   
+    const [sidebar, setSidebar] = useState(openSideNav);
 
+    function openSideNav () {
+       return  window.innerWidth > 767;
+    } 
+    
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setSidebar(openSideNav());
+        })
+    }, []);
+  
+    
+    const toggleSidebar = () => {
+        setSidebar(!sidebar);
+        console.log(sidebar);
+    } ;
+   
     return (
         <>
         <StyledNavbar>
@@ -21,7 +35,7 @@ const Header = () => {
                     <Button className="bp3-minimal icon-white" icon="user" intent="#f5f8fa" text="Sign out"/>
             </StyledGroup>
         </StyledNavbar>
-        <Sidenav/>
+        <Sidenav sidebar={sidebar}/>
         </>
     );
 }
@@ -29,6 +43,7 @@ const Header = () => {
 const StyledNavbar = styled(Navbar) ` 
 padding: 0px 100px 0px 20px;
 background: var(--header-bg);
+z-index:100;
 .bp3-minimal {
     color: var(--header-ft);
     outline: none;

@@ -3,11 +3,8 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import * as FaIcons from 'react-icons/fa';
 import {CgAddR} from 'react-icons/cg/';
-import { useProduct } from '../contexts/ProductContext';
 
-
-const Sidenav = () => {
-const {sidebar} = useProduct();
+const Sidenav = ({sidebar}) => {
 
     return (
         <NavWrapper className={sidebar ? 'nav-wrapper active' : 'nav-wrapper hidden'}>
@@ -31,6 +28,7 @@ const {sidebar} = useProduct();
 }
 
 const NavWrapper = styled.div `
+z-index:10;
 h4 {
     margin-bottom:10px;
     padding-top: 50px;

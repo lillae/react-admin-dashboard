@@ -33,7 +33,7 @@ const Products = () => {
 
 
     return (
-      <Wrapper>
+      <Wrapper classname="wrapper">
         <h1>All Products</h1>
     
             <Cards>
@@ -56,8 +56,11 @@ align-items: center;
 flex-direction: column;
 max-width: 1600px;
 width:100%;
-padding:20px 20px 20px 250px;
 margin: 0px auto;
+padding:20px 20px 20px 250px;
+    @media (max-width:767px) {
+        padding: 15px;
+    }
 
 `;
 

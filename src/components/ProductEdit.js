@@ -1,12 +1,12 @@
 import React from 'react';
 import { Column, Table2} from "@blueprintjs/table";
 import styled from 'styled-components';
-//import { useProduct } from '../contexts/ProductContext';
+
 
 const ProductEdit = () => {
     
     return (
-    <Wrapper>
+    <Wrapper className="wrapper">
         <h1>Edit Products</h1>
         <StyledTable numRows={3}>
             <Column className="col" name="name"/>
@@ -18,10 +18,14 @@ const ProductEdit = () => {
 }
 
 const Wrapper = styled.div ` 
-padding:20px 20px 20px 250px;
 max-width: 1200px;
 width:max-content;
 margin: 0px auto;
+padding:20px 20px 20px 250px;
+z-index: -10;
+    @media (max-width:767px) {
+        padding: 15px;
+    }
 `
 const StyledTable = styled(Table2) `
 max-width: 100%;
