@@ -1,17 +1,15 @@
 import React from 'react';
-import { Column, Table2,  ColumnHeaderCell, EditableCell2, EditableName,Cell } from "@blueprintjs/table";
+import { Column, Table2} from "@blueprintjs/table";
 import styled from 'styled-components';
-import { useProduct } from '../contexts/ProductContext';
+//import { useProduct } from '../contexts/ProductContext';
 
 const ProductEdit = () => {
-    const {products, setProducts} = useProduct();
-
     
     return (
     <Wrapper>
         <h1>Edit Products</h1>
         <StyledTable numRows={3}>
-            <Column className="col" name="name" cellRenderer={products.name}/>
+            <Column className="col" name="name"/>
             <Column className="col" name="price"/>
             <Column className="col" name = "discount"/>
         </StyledTable>

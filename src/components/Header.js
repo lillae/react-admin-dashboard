@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Navbar, Button, Alignment} from '@blueprintjs/core';
 import styled from 'styled-components';
 import { useProduct } from '../contexts/ProductContext';

@@ -9,17 +9,21 @@ import styled from 'styled-components';
 
 const Products = () => {
     const {products, setProducts, setAllProducts, addedProduct} = useProduct();
-    
+
     useEffect(() => {
-        async function fetchProduct() {
-            const res =  await axios.get(productsURL());
+        async function fetchProducts() {
+            const res = await axios.get(productsURL()).catch(err => console.log(err));
+            
+            if(res) {
             setProducts(res.data);
             setAllProducts([...products, addedProduct]);
+            }
+
             return res;
         }
-        fetchProduct();
-        
+        fetchProducts();
     }, [setProducts, setAllProducts, addedProduct, products]);
+
 
     return (
       <Wrapper>
@@ -27,11 +31,11 @@ const Products = () => {
     
             <Cards>
                  {products.map(product => (
-                     <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
+                     <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
                  ))}
                  {addedProduct !== null && 
                  addedProduct.map(product => (
-                    <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={products.uuid}/>
+                    <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
                  ))}
              </Cards>
      </Wrapper>

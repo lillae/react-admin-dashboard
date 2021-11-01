@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { FormGroup, InputGroup, Button } from '@blueprintjs/core';
 import { useProduct } from '../contexts/ProductContext';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddProducts = () => {
     const {setAllProducts, addedProduct, setAddedProduct} = useProduct();
-    const { uuid } = require('uuidv4');
     const [name, setName ] = useState('');
     const [price, setPrice ] = useState('');
     const [description, setDescription ] = useState('');
@@ -35,7 +34,7 @@ const AddProducts = () => {
             Description: description,
             Price: price,
             Discount: discount,
-            uuid: uuid(),
+            uuid: uuidv4(),
             
         }
         
