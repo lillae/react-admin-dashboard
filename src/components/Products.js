@@ -16,6 +16,7 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data);
+            setAllProducts(...products, ...allProducts);
         }
            
 
@@ -23,7 +24,7 @@ const Products = () => {
         }
         fetchProducts();
         
-    }, [setProducts, addedProduct, products, setAllProducts]);
+    }, [setProducts, addedProduct, products, setAllProducts,allProducts]);
 
 
     return (
@@ -31,7 +32,7 @@ const Products = () => {
         <h1>All Products</h1>
     
             <Cards>
-                {allProducts.length && (
+                {!!allProducts.length && (
                      allProducts.map(product => (
                         <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
                     )) 

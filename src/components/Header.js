@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Navbar, Button, Alignment} from '@blueprintjs/core';
 import styled from 'styled-components';
 import Sidenav from './SideNav';
+import Mobilenav from './MobileNav';
 
 
 const Header = () => {
     const [sidebar, setSidebar] = useState(openSideNav);
+    const isMobile = window.innerWidth < 767;
 
     function openSideNav () {
        return  window.innerWidth > 767;
@@ -17,11 +19,6 @@ const Header = () => {
         })
     }, []);
   
-    
-    const toggleSidebar = () => {
-        setSidebar(!sidebar);
-        console.log(sidebar);
-    } ;
    
     return (
         <>
@@ -30,13 +27,15 @@ const Header = () => {
                 <StyledNavHome>
                     <h2>Store Admin</h2>
                     <Navbar.Divider className="divider"/>
-                    <Button className="bp3-minimal menuBtn" icon="menu" intent="#f5f8fa" text="Menu" onClick={toggleSidebar}/>
+                    
                 </StyledNavHome>
                     <Button className="bp3-minimal icon-white" icon="user" intent="#f5f8fa" text="Sign out"/>
             </StyledGroup>
         </StyledNavbar>
-        <Sidenav sidebar={sidebar} setSidebar={setSidebar} />
+        {!isMobile ? <Sidenav sidebar={sidebar} setSidebar={setSidebar} /> : <Mobilenav/>}
         </>
+        
+    
     );
 }
 
@@ -44,6 +43,9 @@ const StyledNavbar = styled(Navbar) `
 padding: 0px 100px 0px 20px;
 background: var(--header-bg);
 z-index:100;
+position: fixed;
+top:0;
+left:0;
 .bp3-minimal {
     color: var(--header-ft);
     outline: none;
@@ -63,7 +65,6 @@ z-index:100;
         display:none;
     }
 }
-
 `;
 
 const StyledGroup = styled(Navbar.Group) ` 
@@ -78,10 +79,12 @@ align-items:center;
 h2 {
     font-weight: 600;
     color: var(--header-ft);
+    @media(max-width:767px) {
+        font-size: 1.2rem;
+    }
 }
 .divider {
     background:#f5f8faa2;
-
 }
 `
 

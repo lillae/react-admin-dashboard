@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const AddProducts = () => {
-    const {products, setAllProducts, addedProduct, setAddedProduct} = useProduct();
+    const {setAllProducts, addedProduct, setAddedProduct, allProducts} = useProduct();
     const [name, setName ] = useState('');
     const [price, setPrice ] = useState('');
     const [description, setDescription ] = useState('');
@@ -41,10 +41,10 @@ const AddProducts = () => {
         
         if(addedProduct.length > 0) {
             setAddedProduct([...addedProduct, newProduct])
-            setAllProducts([...products, ...addedProduct, newProduct]);
+            setAllProducts([newProduct, ...allProducts]);
         } else {
             setAddedProduct([newProduct])
-            setAllProducts([...products, newProduct]);
+            setAllProducts([ newProduct, ...allProducts]);
         }
      
         
