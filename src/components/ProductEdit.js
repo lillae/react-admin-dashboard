@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useProduct } from '../contexts/ProductContext';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 
 const ProductEdit = () => {
