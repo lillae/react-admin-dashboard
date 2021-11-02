@@ -10,18 +10,79 @@ const ProductEdit = () => {
 
     const {allProducts, setAllProducts} = useProduct();
     const [editProductId, setEditProductId] = useState(null);
+    const [editForm, setEditForm] = useState({
+        name: "",
+        Description: "",
+        Price: "",
+        Discount: "",
+    })
+
+    const saveEditHandler = (e) => {
+        e.preventDefault();
+        const fieldName = e.target.getAttribute("name");
+        const fieldValue = e.target.value;
+
+        const newForm = {...editForm};
+        newForm[fieldName] = fieldValue;
+        setEditForm(newForm);
+    }
 
     const editHandler = (e, product) => {
         e.preventDefault();
-        setEditProductId(product.uuid)
+        setEditProductId(product.uuid);
+
+        const formValues = {
+            name: product.name,
+            Description: product.Description,
+            Price: product.Price,
+            Discount: product.Discount
+        }
+
+        setEditForm(formValues);
     }
+
+   const submitEditsHandler = (e) => {
+        e.preventDefault();
+
+        const editedProduct = {
+            name: editForm.name,
+            Description: editForm.Description,
+            Price: editForm.Price,
+            Discount: editForm.Discount,
+            uuid: editProductId
+        }
+
+        const newProducts = [...allProducts];
+
+        const index = allProducts.findIndex((product) => product.uuid === editProductId);
+
+        newProducts[index] = editedProduct;
+        setAllProducts(newProducts);
+        setEditProductId(null);
+
+   }
+
+   const cancelHandler = () => {
+       setEditProductId(null);
+   }
+
+   const deleteHandler = (productId) => {
+    const newProducts = [...allProducts];
+
+    const index = allProducts.findIndex((product) => product.uuid === productId);
+
+    newProducts.splice(index, 1);
+   
+    setAllProducts(newProducts);
+  };
+
   
     return (
     
         <Wrapper className="wrapper">
             <h1>Edit Products</h1>
-            <form action="">
-            <HTMLTable className="bp3-html-table " interactive={true}>
+            <form onSubmit={submitEditsHandler}>
+            <HTMLTable className="bp3-html-table " interactive={true} bordered={true}>
                 <table>
                     <thead>
                         <tr>
@@ -35,7 +96,7 @@ const ProductEdit = () => {
                     <tbody>
                         {allProducts.map((product) => 
                         <>
-                        {editProductId === product.uuid ? <EditableRow/> : <ReadOnlyRow  product={product} editHandler={editHandler}/>}
+                        {editProductId === product.uuid ? <EditableRow editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} /> : <ReadOnlyRow  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
                        </> 
                     )}
                     </tbody>

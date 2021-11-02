@@ -2,25 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '@blueprintjs/core';
 
-const EditableRow = () => {
+const EditableRow = ({editForm, saveEditHandler, cancelHandler}) => {
     return (
         <StyledRow>
             <td>
-                <input type="text" required="required" placeholder="Enter name" name="Product Name"  />
+                <input type="text" required="required" placeholder="Enter name" value={editForm.name} name="Name" onChange={saveEditHandler} />
             </td>
             <td>
-            <input type="text" required="required" placeholder="Enter description" name="Description"  />
+            <input type="text" required="required" placeholder="Enter description" value={editForm.Description} name="Description" onChange={saveEditHandler}  />
             </td>
             <td>
-            <input type="text" required="required" placeholder="$" name="Price"  />
+            <input type="text" required="required" placeholder="$" name="Price" value={editForm.Price} onChange={saveEditHandler}  />
             </td>
             <td>
-            <input type="text" required="required" placeholder="%" name="Discount"  />
+            <input type="text" required="required" placeholder="%" name="Discount" value={editForm.Discount}  onChange={saveEditHandler} />
             
             </td>
             <td>
-            <Button type="button" className="btn save"  outlined={true}>Save</Button>
-            <Button type="button" className="btn cancel"  outlined={true}>Cancel</Button>
+            <Button type="submit" className="btn save"  outlined={true}>Save</Button>
+            <Button type="button" className="btn cancel"  outlined={true} onClick={cancelHandler}>Cancel</Button>
             </td>
         </StyledRow>
     );
