@@ -57,6 +57,7 @@ margin: 0px auto;
 padding:60px 20px 20px 250px;
     @media (max-width:767px) {
         padding: 15px;
+        
     }
 
 `;

@@ -41,8 +41,9 @@ align-items: center;
 
 const StyledNavGroup = styled.nav ` 
 width:100%;
-max-width:100%;
-justify-content: space-around;
+max-width:340px;
+justify-content: center;
+margin: 0px auto;
 .bp3-minimal {
     color: var(--header-ft);
     outline: none;

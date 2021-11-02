@@ -33,6 +33,10 @@ const GlobalStyles = createGlobalStyle `
      @media (max-width:1024px) {
         font-size: 1.8rem;
     }
+    @media (max-width:767px){ 
+        font-size: 1.8rem;
+        margin-top: 100px;
+    }
  }
 
  h4 {
