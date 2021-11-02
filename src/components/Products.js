@@ -16,7 +16,13 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data);
-            setAllProducts(...products, ...allProducts);
+            if(allProducts.length === 0) {
+                setAllProducts([...products]);
+            } 
+            if(allProducts.length > 0) {
+                setAllProducts([...allProducts]);
+            }
+           
         }
            
 
@@ -30,7 +36,6 @@ const Products = () => {
     return (
       <Wrapper classname="wrapper">
         <h1>All Products</h1>
-    
             <Cards>
                 {!!allProducts.length && (
                      allProducts.map(product => (
@@ -49,7 +54,7 @@ flex-direction: column;
 max-width: 1600px;
 width:100%;
 margin: 0px auto;
-padding:20px 20px 20px 250px;
+padding:60px 20px 20px 250px;
     @media (max-width:767px) {
         padding: 15px;
     }

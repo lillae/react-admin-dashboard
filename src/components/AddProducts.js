@@ -102,7 +102,7 @@ margin: 0px auto;
 display: flex;
 flex-direction: column;
 z-index: -10;
-padding:20px 20px 20px 250px;
+padding:60px 20px 20px 250px;
     @media (max-width:767px) {
         padding: 15px;
     }

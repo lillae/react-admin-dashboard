@@ -84,7 +84,6 @@ const ProductEdit = () => {
             <h1>Edit Products</h1>
             <form onSubmit={submitEditsHandler}>
             <HTMLTable className="bp3-html-table " interactive={true} bordered={true}>
-                <table>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -95,13 +94,12 @@ const ProductEdit = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allProducts.map((product) => 
+                        {!! allProducts.length && (allProducts.map((product) => 
                         <>
                         {editProductId === product.uuid ? <EditableRow editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} /> : <ReadOnlyRow  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
                        </> 
-                    )}
+                    ))}
                     </tbody>
-                </table>
             </HTMLTable>
             </form>
         </Wrapper>
@@ -113,7 +111,7 @@ const Wrapper = styled.div `
 max-width: 1200px;
 width:max-content;
 margin: 0px auto;
-padding:20px 20px 20px 250px;
+padding:60px 20px 20px 250px;
 form {
     max-width:700px;
     width:100%;
