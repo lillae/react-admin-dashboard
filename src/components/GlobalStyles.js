@@ -52,6 +52,10 @@ const GlobalStyles = createGlobalStyle `
     position:fixed;
     display:flex;
     flex-direction:column;
+    @media(max-width:767px) {
+    width: 150px;
+    padding: 25px 0px 0px 20px
+}
 }
 
 .active {
@@ -69,6 +73,12 @@ transition: all 900ms ease-out;
 .wrapper {
     
 }
+
+table.bp3-html-table td {
+    vertical-align: middle;
+    
+}
+
 
 `;
 

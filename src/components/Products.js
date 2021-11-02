@@ -66,7 +66,7 @@ padding:20px 20px 20px 250px;
 
 const Cards = styled.div `
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 grid-auto-rows: 320px;
 justify-content: center;
 max-width:100%;

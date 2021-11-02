@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import * as FaIcons from 'react-icons/fa';
 import {CgAddR} from 'react-icons/cg/';
 
-const Sidenav = ({sidebar}) => {
+const Sidenav = ({sidebar, setSidebar}) => {
+   
+  
 
     return (
         <NavWrapper className={sidebar ? 'nav-wrapper active' : 'nav-wrapper hidden'}>
@@ -12,10 +14,10 @@ const Sidenav = ({sidebar}) => {
             <nav>
                 <ul>
                     <li>
-                    <Link to='/'><FaIcons.FaThList className='icon'/>All Products</Link> 
+                    <Link to='/'><FaIcons.FaThList className='icon' />All Products</Link> 
                     </li>
                     <li>
-                    <Link to='/edit'><FaIcons.FaRegEdit className='icon'/>Edit Products</Link>
+                    <Link to='/edit'><FaIcons.FaRegEdit className='icon' />Edit Products</Link>
                     </li>
                     <li>
                     <Link to='/add'><CgAddR className="icon"/>Add Products</Link> 

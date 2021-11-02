@@ -32,8 +32,8 @@ cursor:pointer;
   margin-bottom: 20px;
 }
   h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 900;
   }
 
   span {

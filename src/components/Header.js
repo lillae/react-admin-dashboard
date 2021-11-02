@@ -30,12 +30,12 @@ const Header = () => {
                 <StyledNavHome>
                     <h2>Store Admin</h2>
                     <Navbar.Divider className="divider"/>
-                    <Button className="bp3-minimal" icon="menu" intent="#f5f8fa" text="Menu" onClick={toggleSidebar}/>
+                    <Button className="bp3-minimal menuBtn" icon="menu" intent="#f5f8fa" text="Menu" onClick={toggleSidebar}/>
                 </StyledNavHome>
                     <Button className="bp3-minimal icon-white" icon="user" intent="#f5f8fa" text="Sign out"/>
             </StyledGroup>
         </StyledNavbar>
-        <Sidenav sidebar={sidebar}/>
+        <Sidenav sidebar={sidebar} setSidebar={setSidebar} />
         </>
     );
 }
@@ -58,6 +58,12 @@ z-index:100;
 @media(max-width:1023px) {
     padding: 0 20px;
 }
+@media(min-width: 768px) {
+    .menuBtn{
+        display:none;
+    }
+}
+
 `;
 
 const StyledGroup = styled(Navbar.Group) ` 
