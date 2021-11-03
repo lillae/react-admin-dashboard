@@ -118,6 +118,7 @@ form {
     max-width:700px;
     width:100%;
     overflow-x:auto;
+    margin: 15px auto;
 }
 table {
     max-width: 100%;
