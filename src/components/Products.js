@@ -21,7 +21,7 @@ const Products = () => {
             if(allProducts.length > 0) {
                 setAllProducts([...allProducts]);
             } else {
-                setAllProducts('');
+                setAllProducts(allProducts);
             }
         }
             return res;
