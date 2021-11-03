@@ -111,12 +111,13 @@ const ProductEdit = () => {
 
 const Wrapper = styled.div ` 
 max-width: 1200px;
-width:max-content;
+width:100%;
 margin: 0px auto;
 padding:60px 20px 20px 250px;
 form {
     max-width:700px;
     width:100%;
+    overflow-x:auto;
 }
 table {
     max-width: 100%;
