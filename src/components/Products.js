@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
-import { productsURL } from '../api';
 import ProductCard from './ProductCard';
 import { useProduct } from '../contexts/ProductContext';
 import styled from 'styled-components';
@@ -12,7 +11,7 @@ const Products = () => {
 
     useEffect(() => {
         async function fetchProducts() {
-            const res = await axios.get(productsURL()).catch(err => console.log(err));
+            const res = await axios.get('https://a.nacapi.com/LimeGreen/products/').catch(err => console.log(err));
             
             if(res) {
             setProducts(res.data);

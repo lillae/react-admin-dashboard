@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Navbar, Button, Alignment } from '@blueprintjs/core';
+import { Navbar} from '@blueprintjs/core';
 import {Link} from 'react-router-dom';
-import { Icon } from '@blueprintjs/core';
 import * as FaIcons from 'react-icons/fa';
 import {CgAddR} from 'react-icons/cg/';
 
