@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 
 const Products = () => {
-    const {products, setProducts, addedProduct, setAllProducts, allProducts} = useProduct();
+    const {products, setProducts, setAllProducts, allProducts, editedItems} = useProduct();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -15,14 +15,21 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-            setAllProducts(products);
-           
+
+            if(allProducts.length === 0 && !editedItems) {
+                setAllProducts(products);
+                
+            } 
+
+            if(allProducts.length === 0 && editedItems) {
+                setAllProducts(allProducts)
+            }
           
             if(allProducts.length > 0) {
                 setAllProducts([...allProducts]);
-            } else {
-                setAllProducts(allProducts);
-            }
+            } 
+
+           
         }
             return res;
         }

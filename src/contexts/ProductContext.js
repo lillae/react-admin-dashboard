@@ -11,6 +11,7 @@ export function ProductProvider({children}) {
     const [products, setProducts] = useLocalStorage('Api Data', []);
     const [addedProduct, setAddedProduct] = useLocalStorage('Added Item', []);
     const [allProducts, setAllProducts] = useLocalStorage('All Products', []);
+    const [editedItems, setEditedItems ] = useLocalStorage('Edited', false);
     
     const value = {
         products,
@@ -19,6 +20,8 @@ export function ProductProvider({children}) {
         setAddedProduct,
         allProducts,
         setAllProducts,
+        editedItems, 
+        setEditedItems,
        
     }
 

@@ -9,7 +9,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 
 const ProductEdit = () => {
 
-    const {allProducts, setAllProducts} = useProduct();
+    const {allProducts, setAllProducts, editedItems, setEditedItems} = useProduct();
     const [editProductId, setEditProductId] = useState(null);
     const [editForm, setEditForm] = useState({
         name: "",
@@ -59,6 +59,7 @@ const ProductEdit = () => {
 
         newProducts[index] = editedProduct;
         setAllProducts(newProducts);
+        setEditedItems(true);
         setEditProductId(null);
 
    }
@@ -75,6 +76,7 @@ const ProductEdit = () => {
     newProducts.splice(index, 1);
    
     setAllProducts(newProducts);
+    setEditedItems(true);
   };
 
   
