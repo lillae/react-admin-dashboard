@@ -14,22 +14,21 @@ const Products = () => {
             const res = await axios.get('https://a.nacapi.com/LimeGreen/products/').catch(err => console.log(err));
             
             if(res) {
-            setProducts(res.data);
-            if(allProducts.length === 0) {
-                setAllProducts([...products]);
-            } 
+            setProducts(res.data)
+            setAllProducts(products);
+           
+          
             if(allProducts.length > 0) {
                 setAllProducts([...allProducts]);
+            } else {
+                setAllProducts('');
             }
-           
         }
-           
-
             return res;
         }
         fetchProducts();
         
-    }, [setProducts, addedProduct, products, setAllProducts,allProducts]);
+    }, []);
 
 
     return (
