@@ -15,21 +15,9 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-
-            if(allProducts.length === 0 && !editedItems) {
-                setAllProducts(products);
-                
-            } 
-
-            if(allProducts.length === 0 && editedItems) {
-                setAllProducts(allProducts)
-            }
-          
-            if(allProducts.length > 0) {
-                setAllProducts([...allProducts]);
-            } 
-
-           
+            if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
+            if(allProducts.length === 0 && editedItems === true) setAllProducts(allProducts);
+            if(allProducts.length > 0) setAllProducts([...allProducts]);
         }
             return res;
         }

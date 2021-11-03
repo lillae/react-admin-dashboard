@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import { EditableText, HTMLTable} from "@blueprintjs/core";
+import { HTMLTable} from "@blueprintjs/core";
 import styled from 'styled-components';
 import { useProduct } from '../contexts/ProductContext';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
-import useLocalStorage from '../hooks/useLocalStorage';
+
 
 
 const ProductEdit = () => {
 
-    const {allProducts, setAllProducts, editedItems, setEditedItems} = useProduct();
+    const {allProducts, setAllProducts, setEditedItems} = useProduct();
     const [editProductId, setEditProductId] = useState(null);
     const [editForm, setEditForm] = useState({
         name: "",
