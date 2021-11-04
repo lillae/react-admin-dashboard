@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
-import { useProduct } from '../contexts/ProductContext';
+import { useProduct } from '../../contexts/ProductContext';
 import styled from 'styled-components';
-import { productsURL } from '../api';
+import { productsURL } from '../../api';
 
 
 

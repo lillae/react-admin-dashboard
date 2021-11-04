@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { HTMLTable} from "@blueprintjs/core";
 import styled from 'styled-components';
-import { useProduct } from '../contexts/ProductContext';
+import { useProduct } from '../../contexts/ProductContext';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 

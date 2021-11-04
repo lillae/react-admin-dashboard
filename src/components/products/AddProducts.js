@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { FormGroup, InputGroup, Button } from '@blueprintjs/core';
-import { useProduct } from '../contexts/ProductContext';
+import { useProduct } from '../../contexts/ProductContext';
 import { v4 as uuidv4 } from 'uuid';
 
 

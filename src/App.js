@@ -1,10 +1,10 @@
 import React from 'react';
-import Products from './components/Products';
+import Products from './components/products/Products';
 import { ProductProvider } from './contexts/ProductContext';
 import GlobalStyles from './components/GlobalStyles';
-import Header from './components/Header';
-import ProductEdit from './components/ProductEdit';
-import AddProducts from './components/AddProducts';
+import Header from './components/nav/Header';
+import ProductEdit from './components/products/ProductEdit';
+import AddProducts from './components/products/AddProducts';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
