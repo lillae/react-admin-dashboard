@@ -44,7 +44,7 @@ const ProductEdit = () => {
         e.preventDefault();
 
         const editedProduct = {
-            name: editForm.Name,
+            name: editForm.name,
             Description: editForm.Description,
             Price: editForm.Price,
             Discount: editForm.Discount,
