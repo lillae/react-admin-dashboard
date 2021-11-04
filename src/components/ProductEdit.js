@@ -5,8 +5,6 @@ import { useProduct } from '../contexts/ProductContext';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 
-
-
 const ProductEdit = () => {
 
     const {allProducts, setAllProducts, setEditedItems} = useProduct();
@@ -121,7 +119,7 @@ form {
     margin: 15px auto;
 }
 table {
-    max-width: 100%;
+    width:700px;
     margin: 25px auto;
 }
 

@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle `
      list-style-type:none;
  }
 
+ a, button, .card {
+    -webkit-tap-highlight-color: transparent;
+ }
+
 .nav-wrapper {
     width: 236px;
     background: #f8f8f8;
