@@ -31,7 +31,7 @@ const ProductEdit = () => {
         setEditProductId(product.uuid);
 
         const formValues = {
-            name: product.name,
+            name: product.Name,
             Description: product.Description,
             Price: product.Price,
             Discount: product.Discount
@@ -44,7 +44,7 @@ const ProductEdit = () => {
         e.preventDefault();
 
         const editedProduct = {
-            name: editForm.name,
+            name: editForm.Name,
             Description: editForm.Description,
             Price: editForm.Price,
             Discount: editForm.Discount,
@@ -96,7 +96,7 @@ const ProductEdit = () => {
                     <tbody>
                         {!! allProducts.length && (allProducts.map((product) => 
                         <>
-                        {editProductId === product.uuid ? <EditableRow editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} /> : <ReadOnlyRow  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
+                        {editProductId === product.uuid ? <EditableRow key={product.uuid} editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} /> : <ReadOnlyRow key={product.uuid}  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
                        </> 
                     ))}
                     </tbody>
