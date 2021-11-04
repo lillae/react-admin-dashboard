@@ -9,6 +9,7 @@ const ProductEdit = () => {
 
     const {allProducts, setAllProducts, setEditedItems} = useProduct();
     const [editProductId, setEditProductId] = useState(null);
+    
     const [editForm, setEditForm] = useState({
         name: "",
         Description: "",
@@ -53,11 +54,13 @@ const ProductEdit = () => {
 
         const newProducts = [...allProducts];
 
+
         const index = allProducts.findIndex((product) => product.uuid === editProductId);
 
         newProducts[index] = editedProduct;
         setAllProducts(newProducts);
         setEditedItems(true);
+        
         setEditProductId(null);
 
    }

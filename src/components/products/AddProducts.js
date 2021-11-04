@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { FormGroup, InputGroup, Button } from '@blueprintjs/core';
 import { useProduct } from '../../contexts/ProductContext';
@@ -6,11 +6,19 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const AddProducts = () => {
-    const {setAllProducts, addedProduct, setAddedProduct, allProducts} = useProduct();
+    const {setAllProducts, addedProduct, setAddedProduct, allProducts, setIsAdded ,isAdded} = useProduct();
     const [name, setName ] = useState('');
     const [price, setPrice ] = useState('');
     const [description, setDescription ] = useState('');
     const [discount, setDiscount ] = useState('');
+
+    useEffect(() => {
+        setTimeout(() => {
+          if(isAdded) setIsAdded(false);
+        }, 2500);
+    
+      }, [isAdded]);
+      
 
     const nameValueHandler = (e) => {
         setName(e.target.value);
@@ -47,18 +55,20 @@ const AddProducts = () => {
             setAllProducts([ newProduct, ...allProducts]);
         }
      
-        
+        setIsAdded(true);
         setName('');
         setDescription('');
         setPrice('');
         setDiscount('');
-        console.log(addedProduct);
     }
+
+    
        
 
     return (
         <Wrapper className="wrapper">
             <h1>Add Products</h1>
+            {isAdded && <p>Product has been added</p>}
             <StyledFormGroup
                 label="Product name"
                 labelFor="text-input"
@@ -103,6 +113,11 @@ display: flex;
 flex-direction: column;
 z-index: -10;
 padding:60px 20px 20px 250px;
+p{
+    color: white;
+    background: #2da778c0;
+    padding:10px;
+}
     @media (max-width:767px) {
         padding: 15px;
     }

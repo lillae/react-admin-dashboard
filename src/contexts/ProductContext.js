@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 export const ProductContext = React.createContext();
@@ -12,6 +12,7 @@ export function ProductProvider({children}) {
     const [addedProduct, setAddedProduct] = useLocalStorage('Added Item', []);
     const [allProducts, setAllProducts] = useLocalStorage('All Products', []);
     const [editedItems, setEditedItems ] = useLocalStorage('Edited', false);
+    const [isAdded, setIsAdded] = useState(false);
     
     const value = {
         products,
@@ -22,6 +23,8 @@ export function ProductProvider({children}) {
         setAllProducts,
         editedItems, 
         setEditedItems,
+        isAdded,
+        setIsAdded,
        
     }
 
