@@ -8,7 +8,12 @@ import { productsURL } from '../../api';
 
 
 const Products = () => {
-    const {products, setProducts, setAllProducts, allProducts, editedItems} = useProduct();
+    const {products, setProducts, setAllProducts, allProducts, editedItems, setEditedItems} = useProduct();
+
+    useEffect(() => {
+        setEditedItems(false);
+        if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
+    }, []);
 
     useEffect(() => {
         async function fetchProducts() {
@@ -16,7 +21,7 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-            if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
+            
             if(allProducts.length === 0 && editedItems === true) setAllProducts(allProducts);
             if(allProducts.length > 0) setAllProducts([...allProducts]);
         }
@@ -24,7 +29,7 @@ const Products = () => {
         }
         fetchProducts();
         
-    }, []);
+    }, [editedItems]);
 
 
     return (
