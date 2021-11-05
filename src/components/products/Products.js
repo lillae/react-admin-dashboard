@@ -8,12 +8,7 @@ import { productsURL } from '../../api';
 
 
 const Products = () => {
-    const {products, setProducts, setAllProducts, allProducts, editedItems, setEditedItems} = useProduct();
-
-    useEffect(() => {
-        setEditedItems(false);
-        if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
-    }, []);
+    const {products, setProducts, setAllProducts, allProducts, editedItems} = useProduct();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -21,7 +16,7 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-            
+            if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
             if(allProducts.length === 0 && editedItems === true) setAllProducts(allProducts);
             if(allProducts.length > 0) setAllProducts([...allProducts]);
         }
@@ -29,13 +24,18 @@ const Products = () => {
         }
         fetchProducts();
         
-    }, [editedItems]);
+    }, []);
 
 
     return (
       <Wrapper classname="wrapper">
         <h1>All Products</h1>
             <Cards>
+            {allProducts.length === 0 && (
+                     products.map(product => (
+                        <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>
+                    )) 
+                )}
                 {!!allProducts.length && (
                      allProducts.map(product => (
                         <ProductCard name={product.name} description={product.Description} price={product.Price} discount={product.Discount} key={product.uuid}/>

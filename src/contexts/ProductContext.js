@@ -1,5 +1,4 @@
 import React, {useContext, useState} from 'react';
-import useLocalStorage from '../hooks/useLocalStorage';
 
 export const ProductContext = React.createContext();
 
@@ -8,11 +7,12 @@ export function useProduct() {
 }
 
 export function ProductProvider({children}) {
-    const [products, setProducts] = useLocalStorage('Api Data', []);
-    const [addedProduct, setAddedProduct] = useLocalStorage('Added Item', []);
-    const [allProducts, setAllProducts] = useLocalStorage('All Products', []);
-    const [editedItems, setEditedItems ] = useLocalStorage('Edited', false);
-    const [isAdded, setIsAdded] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [addedProduct, setAddedProduct] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
+    const [editedItems, setEditedItems ] = useState(false);
+    const [isAdded, setIsAdded ] = useState(false);
+
     
     const value = {
         products,
@@ -24,7 +24,7 @@ export function ProductProvider({children}) {
         editedItems, 
         setEditedItems,
         isAdded,
-        setIsAdded,
+        setIsAdded
        
     }
 
