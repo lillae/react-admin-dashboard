@@ -15,7 +15,7 @@ const AddProducts = () => {
     useEffect(() => {
         setTimeout(() => {
           if(isAdded) setIsAdded(false);
-        }, 2500);
+        }, 1500);
     
       }, [isAdded]);
       

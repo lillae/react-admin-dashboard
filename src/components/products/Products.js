@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import { useProduct } from '../../contexts/ProductContext';
@@ -8,7 +8,24 @@ import { productsURL } from '../../api';
 
 
 const Products = () => {
-    const {products, setProducts, setAllProducts, allProducts, editedItems} = useProduct();
+    const {products, setProducts, setAllProducts, allProducts, editedItems, setEditedItems} = useProduct();
+    const [isInitialRender, setIsInitialRender] = useState(true);
+
+    useEffect(() => {
+        if(isInitialRender) {
+            setIsInitialRender(false)
+            const data = localStorage.getItem('All Products');
+            const data2 = localStorage.getItem('Edited Products')
+            if(data) {
+                setAllProducts(JSON.parse(data));
+            }
+            if(data2) {
+                setEditedItems(JSON.parse(data2))
+            }
+        }
+      
+      
+    }, [editedItems, allProducts, isInitialRender]);
 
     useEffect(() => {
         async function fetchProducts() {
@@ -16,13 +33,16 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-            if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
-            if(allProducts.length === 0 && editedItems === true) setAllProducts(allProducts);
+            if(allProducts.length === 0 && !editedItems)  setAllProducts(products);
+            if (allProducts.length === 0 && editedItems)  setAllProducts(allProducts)
             if(allProducts.length > 0) setAllProducts([...allProducts]);
+
         }
             return res;
         }
+        
         fetchProducts();
+       
         
     }, []);
 

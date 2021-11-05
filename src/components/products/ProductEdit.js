@@ -31,7 +31,7 @@ const ProductEdit = () => {
         setEditProductId(product.uuid);
 
         const formValues = {
-            name: product.Name,
+            name: product.name,
             Description: product.Description,
             Price: product.Price,
             Discount: product.Discount
@@ -44,7 +44,7 @@ const ProductEdit = () => {
         e.preventDefault();
 
         const editedProduct = {
-            name: editForm.Name,
+            name: editForm.name,
             Description: editForm.Description,
             Price: editForm.Price,
             Discount: editForm.Discount,

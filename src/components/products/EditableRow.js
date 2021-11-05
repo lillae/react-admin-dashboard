@@ -6,7 +6,7 @@ const EditableRow = ({editForm, saveEditHandler, cancelHandler}) => {
     return (
         <StyledRow>
             <td>
-            <input type="text" required="required" placeholder="Enter name" value={editForm.Name} name="Name" onChange={saveEditHandler} />
+            <input type="text" required="required" placeholder="Enter name" value={editForm.Product} name="Product" onChange={saveEditHandler} />
             </td>
             <td>
             <input type="text" required="required" placeholder="Enter description" value={editForm.Description} name="Description" onChange={saveEditHandler}  />
