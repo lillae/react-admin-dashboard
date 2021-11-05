@@ -11,6 +11,7 @@ export function ProductProvider({children}) {
     const [addedProduct, setAddedProduct] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
     const [editedItems, setEditedItems ] = useState(false);
+    const [isAdded, setIsAdded ] = useState(false);
 
     
     const value = {
@@ -22,6 +23,8 @@ export function ProductProvider({children}) {
         setAllProducts,
         editedItems, 
         setEditedItems,
+        isAdded,
+        setIsAdded
        
     }
 
