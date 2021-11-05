@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 
 export const ProductContext = React.createContext();
 
@@ -12,6 +12,15 @@ export function ProductProvider({children}) {
     const [allProducts, setAllProducts] = useState([]);
     const [editedItems, setEditedItems ] = useState(false);
     const [isAdded, setIsAdded ] = useState(false);
+
+
+    useEffect(() => {
+       if(allProducts.length > 0) {
+        localStorage.setItem('All Products', JSON.stringify(allProducts))
+        localStorage.setItem('Edited Products', JSON.stringify(editedItems)) 
+       }
+       
+    }, [allProducts, editedItems]); 
 
     
     const value = {
