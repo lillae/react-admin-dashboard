@@ -99,7 +99,7 @@ const ProductEdit = () => {
                     <tbody>
                         {!! allProducts.length && (allProducts.map((product) => 
                         <>
-                        {editProductId === product.uuid ? <EditableRow editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} key={product.uuid}/> : <ReadOnlyRow key={product.uuid}  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
+                        {editProductId === product.uuid ? <EditableRow name={product.name} editForm={editForm} saveEditHandler={saveEditHandler} cancelHandler={cancelHandler} key={product.uuid}/> : <ReadOnlyRow key={product.uuid}  product={product} editHandler={editHandler} deleteHandler={deleteHandler}/>}
                        </> 
                     ))}
                     </tbody>

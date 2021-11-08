@@ -6,16 +6,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const AddProducts = () => {
-    const {setAllProducts, addedProduct, setAddedProduct, allProducts, setIsAdded ,isAdded} = useProduct();
+    const {addedProduct, setAddedProduct, allProducts, setAllProducts, setIsAdded ,isAdded} = useProduct();
     const [name, setName ] = useState('');
     const [price, setPrice ] = useState('');
     const [description, setDescription ] = useState('');
     const [discount, setDiscount ] = useState('');
 
-    useEffect(() => {
+   useEffect(() => {
         setTimeout(() => {
           if(isAdded) setIsAdded(false);
-        }, 2000);
+        }, 1500);
     
       }, [isAdded]);
       
@@ -68,7 +68,9 @@ const AddProducts = () => {
     return (
         <Wrapper className="wrapper">
             <h1>Add Products</h1>
+            <div className="confirm">
             {isAdded && <p>Product has been added</p>}
+            </div>
             <StyledFormGroup
                 label="Product name"
                 labelFor="text-input"
@@ -113,6 +115,10 @@ display: flex;
 flex-direction: column;
 z-index: -10;
 padding:60px 20px 20px 250px;
+.confirm {
+    width:fit-content;
+    height:50px;
+}
 p{
     color: white;
     background: #2da778c0;

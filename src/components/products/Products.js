@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import { useProduct } from '../../contexts/ProductContext';
@@ -8,7 +8,10 @@ import { productsURL } from '../../api';
 
 
 const Products = () => {
-    const {products, setProducts, setAllProducts, allProducts, editedItems} = useProduct();
+    const {products, setProducts, setAllProducts, allProducts,editedItems, setEditedItems} = useProduct();
+
+
+
 
     useEffect(() => {
         async function fetchProducts() {
@@ -16,13 +19,16 @@ const Products = () => {
             
             if(res) {
             setProducts(res.data)
-            if(allProducts.length === 0 && editedItems === false) setAllProducts(products);
-            if(allProducts.length === 0 && editedItems === true) setAllProducts(allProducts);
+            if(allProducts.length === 0 && !editedItems)  setAllProducts(products);
+            if (allProducts.length === 0 && editedItems)  setAllProducts(allProducts);
             if(allProducts.length > 0) setAllProducts([...allProducts]);
+
         }
             return res;
         }
+        
         fetchProducts();
+       
         
     }, []);
 
