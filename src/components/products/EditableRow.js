@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '@blueprintjs/core';
 
-const EditableRow = ({editForm, saveEditHandler, cancelHandler}) => {
+const EditableRow = ({editForm, saveEditHandler, cancelHandler, name}) => {
     return (
         <StyledRow>
             <td>
-            <input type="text" required="required" placeholder="Enter name" value={editForm.Product} name="Product" onChange={saveEditHandler} />
+            <input type="text" required="required" placeholder="Enter name" value={editForm.Name} defaultValue={name} name="Product" onChange={saveEditHandler} />
             </td>
             <td>
             <input type="text" required="required" placeholder="Enter description" value={editForm.Description} name="Description" onChange={saveEditHandler}  />

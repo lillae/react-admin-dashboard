@@ -1,4 +1,5 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useReducer} from 'react';
+import { productReducer } from '../reducers/productReducer';
 
 export const ProductContext = React.createContext();
 
@@ -9,17 +10,26 @@ export function useProduct() {
 export function ProductProvider({children}) {
     const [products, setProducts] = useState([]);
     const [addedProduct, setAddedProduct] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
+    const [allProducts, setAllProducts] = useState(() => {
+        const saved = localStorage.getItem("All Products");
+        const inititialValue = JSON.parse(saved);
+        return inititialValue || [];
+    });
     const [editedItems, setEditedItems ] = useState(false);
     const [isAdded, setIsAdded ] = useState(false);
 
+ 
 
     useEffect(() => {
        if(allProducts.length > 0) {
         localStorage.setItem('All Products', JSON.stringify(allProducts))
-        localStorage.setItem('Edited Products', JSON.stringify(editedItems)) 
+        
        }
-       
+       if(editedItems === true) {
+        localStorage.setItem('Edited Products', JSON.stringify(editedItems));
+       }
+       console.log(allProducts);
+       return allProducts; 
     }, [allProducts, editedItems]); 
 
     
