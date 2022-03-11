@@ -161,23 +161,20 @@ const Wrapper = styled.div`
     outline: none;
     background: transparent;
     background-image: none;
-    box-shadow: 0 0 0 1px #63c3a5, 0 0 0 2px #d1fff11a,
-      inset 0 1px 1px rgb(255 255 255 / 2%);
+    box-shadow: 0 0 0 1px rgb(16 22 26 / 10%), 0 1px 1px rgb(16 22 26 / 20%),
+      0 2px 6px rgb(16 22 26 / 20%);
     font-weight: 500;
-    color: #95ffde;
-
+    color: white;
+    border: 1px solid #6040ff;
     &:hover {
       background: #ffffff0d;
-      box-shadow: 0 0 0 1px #63c3a5, 0 0 0 3px #d1fff11a,
-        inset 0 1px 1px rgb(255 255 255 / 2%);
-      color: #95ffde;
     }
   }
   label.bp3-label {
     color: white;
   }
   .bp3-text-muted {
-    color: #adf7e46b;
+    color: #5e5493;
   }
 
   .bp3-input {
@@ -187,7 +184,7 @@ const Wrapper = styled.div`
       color: #ffffff7a;
     }
     &:focus {
-      box-shadow: 0 0 0 1px #95ffde, 0 0 0 3px #d1fff11a,
+      box-shadow: 0 0 0 1px #6040ff, 0 0 0 3px #6b50ec38,
         inset 0 1px 1px rgb(255 255 255 / 2%);
     }
   }

@@ -46,7 +46,7 @@ const StyledCard = styled(Card)`
 
   h6 {
     font-size: 1.2rem;
-    background: #33e4ab4a;
+    background: #66627a;
     padding: 5px 10px;
   }
 `;

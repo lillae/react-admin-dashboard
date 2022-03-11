@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
  html, body, #root {
      min-height:100vh;
      width:100%;
-     background-image: linear-gradient(to bottom, #297e62 0%, #0c0820 100%);
+     background-image: linear-gradient(rgb(37 39 38) 0%, rgb(26 10 106 / 41%) 100%);;
 
  }
 
@@ -102,8 +102,7 @@ table.bp3-html-table td {
       &:hover {
         background: #00000026;
         color: white;
-        box-shadow: 0 0 0 1px #63c3a5, 0 0 0 3px #d1fff11a,
-        inset 0 1px 1px rgb(255 255 255 / 2%);
+        box-shadow: 0 0 0 1px #5638ec, 0 0 0 3px #5638ec5e, inset 0 1px 1px rgb(255 255 255 / 2%);
         outline: none;
       }
 
@@ -113,16 +112,15 @@ table.bp3-html-table td {
     
 .bp3-card.bp3-interactive {
     &:hover {
-      box-shadow: 0 0 0 1px rgb(91 247 234 / 26%),
-        0 2px 4px rgb(115 255 250 / 22%), 0 8px 24px rgb(143 255 239 / 20%);
+      box-shadow:rgb(107 80 239) 0px 0px 0px 1px, rgb(116 88 255) 0px 2px 4px, rgb(103 86 189) 0px 8px 24px;
     }
   }
 
   table.bp3-html-table.bp3-html-table-bordered tbody tr td:not(:first-child), table.bp3-html-table.bp3-html-table-bordered tbody tr td, table.bp3-html-table.bp3-html-table-bordered {
-      box-shadow: inset 1px 1px 0 0 rgb(133 255 255 / 15%);
+      box-shadow: inset 1px 1px 0 0 #393358;
   }
   table.bp3-html-table.bp3-html-table-bordered th:not(:first-child) {
-      box-shadow: inset 1px 0 0 0 rgb(133 255 255  / 15%);
+      box-shadow: inset 1px 0 0 0 #393358;
   }
 `;
 

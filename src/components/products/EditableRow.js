@@ -83,7 +83,7 @@ const StyledRow = styled.tr`
     &:hover {
       background: #ffffff0d;
       color: white;
-      border: 1px solid #91dbc3;
+      border: 1px solid #5638ec;
       transition: color 200ms ease-in-out;
     }
   }
